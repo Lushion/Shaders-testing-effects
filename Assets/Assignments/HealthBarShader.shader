@@ -84,7 +84,7 @@ Shader "Unlit/HleathBarShader"
                 float tHealthColor = saturate(InverseLerp(_MinThreshold, _MaxThreshold, _Health)); 
 
                 // The color is interpolated between the start color (green by default) and the end color (red by default)
-                o.color = lerp(_ColorStart, _ColorEnd, (1 - _Health));
+                i.color = lerp(_ColorStart, _ColorEnd, (1 - _Health));
 
                 // Apply the mask on the health bar
                 float4 healthBarColor = lerp(_BGColor, i.color, healthBarMask); // !! lerp is unclamped, to clamp, use saturate
